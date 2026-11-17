@@ -1,0 +1,5 @@
+MENU: scripts/ErnResetServiceProviders/settings/menu_settings.lua
+GLOBAL: scripts/ErnResetServiceProviders/settings/global_settings.lua
+
+NPC: scripts/ErnResetServiceProviders/npc.lua
+GLOBAL: scripts/ErnResetServiceProviders/global.lua

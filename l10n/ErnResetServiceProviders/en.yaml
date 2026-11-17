@@ -1,0 +1,19 @@
+name: "Reset Service Providers"
+description: "Reset service providers on cell load."
+
+missingFollowerDetectionUtilError: "ERROR! You need to install the Follower Detection Util."
+
+modSettingsAdminTitle: "Admin"
+disable_name: "Disable Mod"
+disable_description: "Turn the mod off."
+debugMode_name: "Debug Mode"
+debugMode_description: "Turn on verbose logging. Please turn this on and grab the log if you are going to report an issue."
+
+modSettingsLocationsTitle: "Reset Locations"
+
+TRAVEL_name: "Travel Providers"
+TRAINING_name: "Trainers"
+SPELLS_name: "Spell Providers"
+ENCHANTING_name: "Enchanters"
+REPAIR_name: "Smiths"
+MERCHANT_name: "Merchants"
