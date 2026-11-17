@@ -22,6 +22,7 @@ local const              = require("scripts.ErnResetServiceProviders.const")
 local pself    = require('openmw.self')
 local settings = require("scripts.ErnResetServiceProviders.settings.settings")
 local aux_util = require('openmw_aux.util')
+local interfaces = require('openmw.interfaces')
 
 local function getRecord(obj)
     return obj.type.record(obj)
@@ -59,6 +60,14 @@ local function doReset()
     return false
 end
 
+local function isFollower()
+    local FollowerDetectionUtil = interfaces.FollowerDetectionUtil
+    if FollowerDetectionUtil then
+        return FollowerDetectionUtil.getState().leader ~= nil
+    end
+    return false
+end
+
 local function onActive()
     if settings.admin.disable then
         return
@@ -66,7 +75,7 @@ local function onActive()
     if settings.admin.debugMode and doReset() then
         settings.debugPrint("would reset " .. getRecord(pself).name)
     end
-    if pself:isValid() and not types.Actor.isDead(pself) and doReset() then
+    if pself:isValid() and not types.Actor.isDead(pself) and doReset() and (not isFollower())then
         core.sendGlobalEvent(MOD_NAME .. "onResetLocation", {
             actor = pself,
         })
